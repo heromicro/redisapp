@@ -8,6 +8,7 @@
 
 import Cocoa
 
+@objcMembers
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var updater: SUUpdater!
@@ -24,7 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var pipe: Pipe = Pipe()
     var file: FileHandle
 
-    var statusBar = NSStatusBar.system()
+    var statusBar = NSStatusBar.system
     var statusBarItem: NSStatusItem = NSStatusItem()
     var menu: NSMenu = NSMenu()
 
@@ -101,12 +102,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func openDocumentationPage(_ send: AnyObject) {
         if let url: URL = URL(string: "https://github.com/jpadilla/redisapp") {
-            NSWorkspace.shared().open(url)
+            NSWorkspace.shared.open(url)
         }
     }
 
     func openLogsDirectory(_ send: AnyObject) {
-        NSWorkspace.shared().openFile(self.logPath)
+        NSWorkspace.shared.openFile(self.logPath)
     }
 
     func createDirectories() {
@@ -194,7 +195,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         // Add quitMenuItem to menu
         quitMenuItem.title = "Quit"
-        quitMenuItem.action = #selector(NSApplication.shared().terminate)
+        quitMenuItem.action = #selector(NSApplication.shared.terminate)
         menu.addItem(quitMenuItem)
     }
 
